@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLIXY - Tarea #1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://t4.ftcdn.net/jpg/10/01/05/61/360_F_1001056104_xA9Z5lgyHQeGZHyz7LllxAkjglrVN81s.jpg'); /* URL de la imagen de fondo */
+            background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen */
+            background-attachment: fixed; /* Fija la imagen al fondo mientras se desplaza */
+            color: #fff; /* Texto blanco */
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            height: 100vh; /* Asegura que ocupe todo el alto de la ventana */
+            margin: 0; /* Elimina el margen por defecto */
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px 30px; /* Reducido para hacer el fondo más pequeño */
+            background-color: rgba(0, 0, 0, 0.98); /* Fondo oscuro semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+            width: 400px; /* Ancho fijo del contenedor */
+            margin-left: 20px; /* Margen izquierdo */
+            margin-right: 20px; /* Margen derecho */
+        }
+
+        .logo {
+            font-size: 60px; /* Tamaño de fuente reducido */
+            color: #e50914; /* Rojo característico de Netflix */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 18px; /* Tamaño de fuente reducido */
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.3); /* Fondo más oscuro para la descripción */
+            border-radius: 10px;
+        }
+
+        .button {
+            margin-top: 30px; /* Espaciado reducido */
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #e50914; /* Rojo de Netflix */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #b20710; /* Rojo más oscuro al pasar el ratón */
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1; /* Asegura que esté por encima de otros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1); /* Fondo translúcido (efecto vidrio) */
+            backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            color: white; /* Letras blancas */
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            margin-bottom: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">FLIXY</div>
+        <div class="description">
+            <p>Gracias por realizar la tarea #2. Toma una captura y envía tu reporte, ya puedes finalizar la tarea</p>
+        </div>
+        <button class="button" id="openModalBtn">Finalizar tarea</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2>Acceso Requerido</h2>
+            <p>Usuario: 12345 </p>
+            <p>Contraseña: 123345 </p>
+        </div>
+    </div>
+
+    <script>
+        // Obtén el modal y el botón para abrirlo
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementById("closeModalBtn");
+
+        // Cuando el usuario haga clic en el botón, abre el modal
+        btn.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        // Cuando el usuario haga clic en la X, cierra el modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cierra el modal si el usuario hace clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
